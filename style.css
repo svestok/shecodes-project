@@ -37,7 +37,7 @@ li {
   position: relative;
   top: -32px;
 }
-a {
+.link {
   position: fixed;
   margin: 0;
   bottom: 0;
