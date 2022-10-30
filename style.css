@@ -42,3 +42,10 @@ li {
   margin: 0 auto;
   text-align: center;
 }
+.weather-temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+.weather-temperature .active:hover {
+  text-decoration: none;
+}

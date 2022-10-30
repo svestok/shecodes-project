@@ -40,6 +40,7 @@ function showWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  celsiusTemperature = response.data.main.temp;
 }
 
 function showPosition(position) {
@@ -51,3 +52,22 @@ function showPosition(position) {
 }
 let button = document.querySelector("#place");
 button.addEventListener("click", showPosition);
+
+function showFarTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+function showCelTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
+let fahrenheitLink = document.querySelector("#far");
+fahrenheitLink.addEventListener("click", showFarTemp);
+let celsiusLink = document.querySelector("#cel");
+celsiusLink.addEventListener("click", showCelTemp);
